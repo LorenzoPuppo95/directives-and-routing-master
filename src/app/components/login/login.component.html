@@ -1,0 +1,15 @@
+<button (click)="fakeLogin()">login NOW</button>
+
+<form action="">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="string" id="email" [(ngModel)]="user.email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="string" id="password" [(ngModel)]="user.psw" name="password" required>
+    </div>
+    
+    <button type="submit" (click)="login()">Add User</button>
+</form>

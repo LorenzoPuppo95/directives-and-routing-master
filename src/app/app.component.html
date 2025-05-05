@@ -1,0 +1,20 @@
+<header>
+  <h1>Student Manager</h1>
+  <nav class="nav-menu">
+    <a routerLink="/home">home</a>
+    <a [routerLink]="['randomize']">randomize</a>
+    <a *ngIf="authServ.isAuth" [routerLink]="['addStudent']">add student</a>
+    <a *ngIf="!authServ.isAuth" [routerLink]="['login']">login</a>
+    <a *ngIf="!authServ.isAuth" [routerLink]="['register']">register</a>
+    <a *ngIf="authServ.isAuth" (click)="logout()">logout</a>
+  </nav>
+</header>
+<main>
+  <router-outlet />
+</main>
+<footer>
+    work in progress!!
+</footer>
+
+
+

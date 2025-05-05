@@ -1,0 +1,20 @@
+@if (student) {
+    <div>
+        <h2>{{student.name}}</h2>
+    </div>
+    <div>
+        <span><strong>marks: </strong></span>
+        @for (mark of student.marks; track $index) {
+            <span>{{mark}} </span>
+        }
+    </div>
+    @if (authServ.isAuth) {
+        <form>
+            <label for="mark">Aggiungi un voto</label>
+            <input type="number" name="mark" id="mark">
+            <button appSuperBtn type="submit">aggiungi</button>
+        </form>
+        <button (click)="addMarksToStudent()">provami</button>
+    }
+
+}
