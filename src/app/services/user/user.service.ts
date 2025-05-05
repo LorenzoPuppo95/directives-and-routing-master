@@ -18,7 +18,7 @@ export class UserService {
   }
 
   getUser(email: string | null): Observable<User>{
-    return this.http.get<User>(this.BASE_URL+this.USERS_ENDPOINT+"/"+email);
+    return this.http.get<User>(this.BASE_URL+this.USERS_ENDPOINT+email);
   }
 
   addUser(student: User) {
