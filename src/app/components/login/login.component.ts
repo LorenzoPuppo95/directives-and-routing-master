@@ -29,16 +29,24 @@ export class LoginComponent {
     this.router.navigate(['/home'])
   }
 
-  login(){ 
+  login() { 
     this.userServ.getUser(this.user.email).subscribe({
       next: (user) => {
+        if (!user) {
+          alert("Email not found");
+          return;
+        }
         if (user.psw === this.user.psw) {
           this.authServ.isAuth = true;
           this.router.navigate(['/home']);
         } else {
           alert("Wrong password");
         }
+      },
+      error: (err) => {
+        console.error("Error during login:", err);
+        alert("An error occurred while logging in. Please try again later.");
       }
     });
-  } 
+  }
 }

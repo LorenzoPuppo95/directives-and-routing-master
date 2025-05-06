@@ -31,7 +31,12 @@ export class RegisterComponent {
     }
     console.log(this.user);
     this.userService.getUsers().subscribe({
-      next: () => {
+      next: (users) => {
+        const emailExists = users.some((existingUser: User) => existingUser.email === this.user.email);
+        if (emailExists) {
+          alert('Email already exists!');
+          return;
+        }
         this.userService.addUser(this.user).subscribe({
           next: () => {
             alert('User added successfully!');
